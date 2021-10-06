@@ -9,23 +9,6 @@
 
 import UIKit
 
-#if swift(>=4.2)
-public typealias UIEventSubtype = UIEvent.EventSubtype
-#endif
-
-extension UIWindow {
-    override open func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?)
-    {
-        if NFX.sharedInstance().getSelectedGesture() == .shake {
-            if (event!.type == .motion && event!.subtype == .motionShake) {
-                NFX.sharedInstance().motionDetected()
-            }
-        } else {
-            super.motionEnded(motion, with: event)
-        }
-    }
-}
-
 public extension UIDevice
 {
     
